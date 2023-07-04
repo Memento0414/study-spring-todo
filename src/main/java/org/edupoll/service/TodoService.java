@@ -18,7 +18,7 @@ public class TodoService {
 
 	@Autowired
 	QuestRepository questRepository;
-
+	/**할일 일정 생성하는 메서드*/
 	public boolean addNewTodo(Todo todo, String logonUser) {
 
 		String id = UUID.randomUUID().toString().split("-")[0];
@@ -33,7 +33,7 @@ public class TodoService {
 			return false;
 		}
 	}
-
+	/**등록된 일정들을 불러오는 메서드*/
 	public List<Todo> getTodos(String logonUser) {
 
 		List<Todo> list = todoRepository.findByOwner(logonUser);
@@ -45,7 +45,7 @@ public class TodoService {
 		}
 		return list;
 	}
-
+	/**일정을 삭제하는 메서드*/
 	public boolean removeTodo(String todoId, String commanderId) {
 
 		Todo todo = todoRepository.findById(todoId);

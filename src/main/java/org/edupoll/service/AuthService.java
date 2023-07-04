@@ -11,7 +11,7 @@ public class AuthService {
 	@Autowired
 	UserRepository userRepository;
 	
-	
+	/**회원가입 메서드*/
 	public boolean createUser(User user) {
 		
 		User found = userRepository.findById(user.getId());
@@ -26,6 +26,7 @@ public class AuthService {
 		}
 		
 	}
+	/**로그인시 유저테이블에 데이터가 확인하는 작업*/
 	public boolean checkUser(User user) {
 		
 		User found = userRepository.findById(user.getId());
