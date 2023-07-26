@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/*회원가입 CSS*/
+body{
+	background-color: #F7F2E0;
+}
+ .form-around {
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+    align-items: center
+  }
+
+  .default-form {
+    background-color: #FDF7F7;
+    text-align: center;
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .default-form input[type="text"],
+  .default-form input[type="password"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+  }
+
+  .default-btn {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .default-btn:hover {
+    background-color: #0056b3;
+  }

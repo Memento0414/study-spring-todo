@@ -36,10 +36,10 @@ public class TodoController {
 	@GetMapping
 	public String gotoTodolist(@SessionAttribute String logonUser, ModelMap model) {
 		List<Todo> todos = todoService.getTodos(logonUser);
-		List<Quest> list = questService.getThisWeekQuest();
-
+		List<Quest> quests = questService.getThisWeekQuest();
+		logger.debug("quest = {}", quests);
 		model.put("todos", todos);
-		model.put("quests", list);
+		model.put("quests", quests);
 
 		return "todos/list";
 	}
@@ -55,10 +55,10 @@ public class TodoController {
 	public String handleCreateTodo(@Valid Todo todo, BindingResult result, Model model,
 			@SessionAttribute String logonUser) {
 
-		logger.debug("injected Todo = {}, {}", todo.getDescription(), todo.getTargetDate());
+//		logger.debug("injected Todo = {}, {}", todo.getDescription(), todo.getTargetDate());
 
 		if (result.hasErrors()) {
-			model.addAttribute("message", "유효하지 않는 값들이 존재합니다.");
+			model.addAttribute("message", "목표 날짜와 목표를 반드시 기입해 주시길 바랍니다.");
 			return "todos/create";
 		} else {
 
@@ -120,7 +120,7 @@ public class TodoController {
 	@GetMapping("/addQuest")
 	public String handleQuest(@RequestParam int questId, @SessionAttribute String logonUser) {
 		
-		boolean result = questService.findbyId(questId, logonUser);
+		boolean result = todoService.acceptNewQuest(questId, logonUser);
 		if(result) {
 			
 			return "redirect:/todos";

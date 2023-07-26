@@ -9,11 +9,12 @@
 	rel="stylesheet"
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
+<link href="/resource/css/style.css?<%=System.currentTimeMillis()%>" rel="stylesheet"/>	
 <title>할일 관리</title>
 </head>
 <body>
 	<div class="container">
-		<div class="mb-2 mt-2">
+		<div class="mb-2 mt-2" style="padding: 8px;">
 			<h2># 목표 설정</h2>
 		</div>
 		<form action="/todos/create-task" method="post">
@@ -23,10 +24,10 @@
 			</div>
 			<div class="mb-2">
 				<label>목표</label> <input type="text" name="description"
-					class="form-control" />
+					class="form-control" placeholder="일정을 입력해주세요."/>
 			</div>
 			<div style="color: red; text-align: center;"> <b>${message }</b></div>
-			<div>
+			<div style="padding: 8px;">
 				<button type="submit" class="btn btn-primary">목표 등록</button>
 			</div>
 		</form>

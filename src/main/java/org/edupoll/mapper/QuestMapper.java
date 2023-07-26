@@ -9,7 +9,7 @@ import org.edupoll.model.Quest;
 @Mapper
 public interface QuestMapper {
 	
-	@Select("SELECT * FROM QUEST")
+	@Select("SELECT * FROM QUESTS")
 	public List<Quest> findAll();
 	
 	

@@ -97,15 +97,5 @@ public class Todo {
 		this.done = done;
 	}
 
-//================================================================
-	
-	//toString 생성
-	@Override
-	public String toString() {
-		return "Todo [id=" + id + ", owner=" + owner + ", description=" + description + ", targetDate=" + targetDate
-				+ ", done=" + done + "]";
-	}
-	
-	
-	
+
 }

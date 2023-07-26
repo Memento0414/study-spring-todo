@@ -11,10 +11,18 @@
 	rel="stylesheet"
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">	
+<link href="/resource/css/style.css?<%=System.currentTimeMillis()%>" rel="stylesheet"/>	
 <title>할일관리</title>
 </head>
 <body>
 	<div class="container">
+		<div style="display: flex; flex-direction: row-reverse; padding: 16px">
+			<a href="/auth-out"><button class="btn btn-primary">로그아웃</button></a>
+		</div>
+		<div style="display: flex; justify-content: center; padding: 25px;">
+			<img src="/resource/image/logo.JPG"  width="20%" height="100px" />
+		</div>
 		<div class="mt-2 mb-2">
 			<h4># 금주에는 이런걸 해보시는게 어떨까요?</h4>
 			<ul class="list-group">
@@ -33,13 +41,13 @@
 					<h4># 당신이 등록한 일들이 없습니다. 추가해보시겠어요?</h4>
 				</c:when>
 				<c:otherwise>
-					<h4># 당신이 등록한 일들입니다. 잊으시진 않으셨죠?</h4>
+					<h4># 등록한 일정</h4>
 				</c:otherwise>
 			</c:choose>
 
 		</div>
 		<div class="mb-1 text-end">
-			<a href="/todos/create" class="text-warning">할 일을 추가합니다</a>
+			<a href="/todos/create"><button type="button" class="btn btn-primary">일정추가<i class="bi bi-calendar-plus" style="padding: 4px;"></i></button></a>
 		</div>
 		<ul class="list-group">
 			<c:forEach var="obj" items="${todos }">

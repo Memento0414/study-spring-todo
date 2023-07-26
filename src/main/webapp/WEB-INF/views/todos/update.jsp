@@ -11,12 +11,13 @@
 	rel="stylesheet"
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
+<link href="/resource/css/style.css?<%=System.currentTimeMillis()%>" rel="stylesheet"/>	
 <title>할일 관리</title>
 </head>
 <body>
 	
-	<div class="container">
-		<div class="mb-2 mt-2">
+	<div class="container" style="">
+		<div class="mb-2 mt-2" style="padding: 16px;">
 			<h2># 목표 변경</h2>
 		</div>
 		<c:if test="${!empty error }">

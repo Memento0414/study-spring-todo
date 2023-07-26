@@ -9,6 +9,8 @@ import org.edupoll.repository.QuestRepository;
 import org.edupoll.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 @Service
 public class TodoService {
@@ -18,6 +20,7 @@ public class TodoService {
 
 	@Autowired
 	QuestRepository questRepository;
+
 	/**할일 일정 생성하는 메서드*/
 	public boolean addNewTodo(Todo todo, String logonUser) {
 
@@ -75,5 +78,37 @@ public class TodoService {
 		return false;
 
 	}
+	
+	@Transactional
+	public boolean acceptNewQuest(int questId, String logonUser) {
+		Quest quest = questRepository.findById(questId);
+		List<Todo> todos = todoRepository.findByOwner(logonUser);
+
+		
+		
+		if (todos.stream().filter(t -> {
+			return t.getDescription().equals(quest.getDescription());
+		}).toList().isEmpty()) {
+
+			Todo todo = new Todo();
+
+			todo.setOwner(logonUser);
+			todo.setDescription(quest.getDescription());
+			todo.setTargetDate(quest.getEndDate());
+			todo.setId(UUID.randomUUID().toString().split("-")[0]);
+			todoRepository.create(todo);
+
+			quest.setJoinCnt(quest.getJoinCnt() + 1);
+			questRepository.update(quest);
+
+			return true;
+			
+		} else {
+			
+			return false;
+		}
+	}
+	
+	
 
 }

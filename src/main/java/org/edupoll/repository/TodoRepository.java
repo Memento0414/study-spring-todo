@@ -3,6 +3,8 @@ package org.edupoll.repository;
 import java.util.List;
 
 import org.edupoll.model.Todo;
+import org.springframework.stereotype.Repository;
+
 
 public interface TodoRepository {
 	//데이터 삽입

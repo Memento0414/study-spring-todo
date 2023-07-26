@@ -2,17 +2,35 @@ package org.edupoll.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.edupoll.model.Quest;
+import org.edupoll.repository.QuestRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
-
-public interface QuestRepository {
+@Repository
+public class QuestRepository{
 	
+	@Autowired
+	SqlSession sqlSession;
+	
+
+	public List<Quest> findAll() {
 		
-	public abstract List<Quest> findAll();
+		return sqlSession.selectList("quests.findAll");
+	}
 	
-	public abstract int update(Quest quest);
+
+	public int update(Quest quest) {
+		
+		return sqlSession.update("quests.update", quest);
+	}
 	
-	public abstract Quest findById(int id);
-	
+
+	public Quest findById(int id) {
+		
+		return sqlSession.selectOne("quests.findById", id);
+	}
 	
 }

@@ -3,10 +3,10 @@
 <mapper namespace="quests">
 
 	<select id="findAll" resultType="Quest">
-		SELECT * FROM QUESTS WHERE END_DATE BETWEEN SYSDATE-1 AND SYSDATE+7 
+		SELECT * FROM QUESTS WHERE END_DATE BETWEEN NOW() - INTERVAL 1 DAY AND NOW() + INTERVAL 7 DAY
 	</select>
 	
-	<update id="update" parameterType="quest">
+	<update id="update" parameterType="Quest">
 		UPDATE QUESTS SET JOIN_CNT =#{joinCnt} WHERE ID =#{id}
 	</update>
 	

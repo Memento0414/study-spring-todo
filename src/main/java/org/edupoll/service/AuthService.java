@@ -5,6 +5,8 @@ import org.edupoll.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jakarta.validation.Valid;
+
 @Service
 public class AuthService {
 	
@@ -31,14 +33,22 @@ public class AuthService {
 		
 		User found = userRepository.findById(user.getId());
 		
-		if(found.getId().equals(user.getId()) && found.getPassword().equals(user.getPassword())) {
+		if(found == null || found.getId().equals("") || found.getPassword().equals("")) {
 			
-			return true;
+			return false;
 			
 		} else {
 			
-			return false;
+			if(found.getId().equals(user.getId()) && found.getPassword().equals(user.getPassword())) {
+				
+				return true;
+				
+			} else {
+				
+				return false;
+			}
 		}
+		
 		
 	}
 }

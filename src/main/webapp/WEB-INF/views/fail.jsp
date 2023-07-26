@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="/resource/css/style.css?<%=System.currentTimeMillis()%>" rel="stylesheet"/>
 <title>Insert title here</title>
 </head>
 <body>
