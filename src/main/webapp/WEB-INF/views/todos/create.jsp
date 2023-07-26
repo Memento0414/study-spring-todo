@@ -13,7 +13,11 @@
 <title>할일 관리</title>
 </head>
 <body>
+	<div style=" display: flex; height: 75vh; align-items: center;">
 	<div class="container">
+		<div style="display: flex; justify-content: center; padding: 25px;">
+			<a href="/todos"><img src="/resource/image/logo.JPG"  width="100%" height="100px" /></a>
+		</div>
 		<div class="mb-2 mt-2" style="padding: 8px;">
 			<h2># 목표 설정</h2>
 		</div>
@@ -27,7 +31,7 @@
 					class="form-control" placeholder="일정을 입력해주세요."/>
 			</div>
 			<div style="color: red; text-align: center;"> <b>${message }</b></div>
-			<div style="padding: 8px;">
+			<div style="padding: 8px; display: flex; justify-content: center;">
 				<button type="submit" class="btn btn-primary">목표 등록</button>
 			</div>
 		</form>
@@ -35,6 +39,7 @@
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 			crossorigin="anonymous"></script>
+	</div>
 	</div>
 </body>
 </html>

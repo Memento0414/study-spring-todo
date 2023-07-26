@@ -21,7 +21,7 @@
 			<a href="/auth-out"><button class="btn btn-primary">로그아웃</button></a>
 		</div>
 		<div style="display: flex; justify-content: center; padding: 25px;">
-			<img src="/resource/image/logo.JPG"  width="20%" height="100px" />
+			<a href="/todos"><img src="/resource/image/logo.JPG"  width="100%" height="100px" /></a>
 		</div>
 		<div class="mt-2 mb-2">
 			<h4># 금주에는 이런걸 해보시는게 어떨까요?</h4>

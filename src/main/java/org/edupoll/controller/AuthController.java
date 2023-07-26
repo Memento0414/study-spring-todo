@@ -39,7 +39,7 @@ public class AuthController {
 		
 		if (result.hasErrors()) {
 			
-			model.addAttribute("error", "이미 존재한 아이디입니다.");
+			model.addAttribute("error", "유효하지 않은 아이디와 비밀번호입니다.");
 			
 			return "user/join";
 
@@ -51,7 +51,7 @@ public class AuthController {
 				
 			} else {
 				
-				model.addAttribute("error", "유효하지 않은 아이디와 비밀번호입니다.");
+				model.addAttribute("error", "이미 가입된 아이디입니다.");
 				
 				return "user/join";
 			}
